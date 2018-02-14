@@ -5,13 +5,12 @@ var Contacts = React.createClass({
   
     render: function() {
         var contacts = this.props.items.map(function(contact) {
-            return <Contact item={contact} key={contact.id}/>
+            return React.createElement(Contact, {item: contact, key: contact.id});
         });
   
-        return (
-            <ul className='contactsList'>
-                {contacts}
+        return
+            <ul className={'contactsList'}>
+                contacts
             </ul>
-        );
     }
 });
