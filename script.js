@@ -21,8 +21,8 @@ var Counter1 = React.createClass({
         console.log("render: tworzenie elementu");
         return React.createElement('div', {},
             React.createElement('span', {}, 'Licznik 1: ' + this.state.counter),
-            React.createElement('button', {onClick: this.increment}, "Zwiększ licznik o 1"),
-            React.createElement('button', {onClick: this.decrement}, "Zmniejsz licznik o 1")
+            React.createElement('button', {onClick: this.increment}, "Plus 1"),
+            React.createElement('button', {onClick: this.decrement}, "Minus 1")
         );
     },
 
@@ -82,8 +82,8 @@ var Counter2 = React.createClass({
     render: function() {
         return React.createElement('div', {},
             React.createElement('span', {}, 'Licznik 2: ' + this.state.counter),
-            React.createElement('button', {onClick: this.increment}, "Zwiększ licznik o 1"),
-            React.createElement('button', {onClick: this.decrement}, "Zmniejsz licznik o 1")
+            React.createElement('button', {onClick: this.increment}, "Plus 1"),
+            React.createElement('button', {onClick: this.decrement}, "Minus 1")
         );
     }
 });
@@ -111,8 +111,8 @@ var Counter3 = React.createClass({
         console.log("render: tworzenie elementu");
         return React.createElement('div', {},
             React.createElement('span', {}, 'Licznik 3: ' + this.state.counter),
-            React.createElement('button', {onClick: this.increment}, "Zwiększ licznik o 1"),
-            React.createElement('button', {onClick: this.decrement}, "Zmniejsz licznik o 1")
+            React.createElement('button', {onClick: this.increment}, "Plus 1"),
+            React.createElement('button', {onClick: this.decrement}, "Minus 1")
         );
     }
 });
