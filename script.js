@@ -118,9 +118,9 @@ var Counter3 = React.createClass({
 });
 
 var element = React.createElement("div", {}, 
-                React.createElement(Counter1),
-                React.createElement(Counter2),
-                React.createElement(Counter3)
+                React.createElement(Counter),
+                React.createElement(Counter),
+                React.createElement(Counter)
               );
 
 ReactDOM.render(element, document.getElementById('app'));
