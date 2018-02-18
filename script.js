@@ -1,4 +1,4 @@
-var Counter1 = React.createClass({
+var Counter = React.createClass({
     getInitialState: function() {
         return {
             counter: 0
@@ -20,7 +20,7 @@ var Counter1 = React.createClass({
     render: function() {
         console.log("render: tworzenie elementu");
         return React.createElement('div', {},
-            React.createElement('span', {}, 'Licznik 1: ' + this.state.counter),
+            React.createElement('span', {}, 'Licznik: ' + this.state.counter),
             React.createElement('button', {onClick: this.increment}, "Plus 1"),
             React.createElement('button', {onClick: this.decrement}, "Minus 1")
         );
@@ -60,67 +60,10 @@ var Counter1 = React.createClass({
     }
 });
 
-var Counter2 = React.createClass({
-    getInitialState: function() {
-        return {
-            counter: 0
-        };
-    },
-
-    increment: function() {
-        this.setState({
-            counter: this.state.counter + 1
-        });
-    },
-
-    decrement: function() {
-        this.setState({
-            counter: this.state.counter - 1
-        });
-    },
-
-    render: function() {
-        return React.createElement('div', {},
-            React.createElement('span', {}, 'Licznik 2: ' + this.state.counter),
-            React.createElement('button', {onClick: this.increment}, "Plus 1"),
-            React.createElement('button', {onClick: this.decrement}, "Minus 1")
-        );
-    }
-});
-
-var Counter3 = React.createClass({
-    getInitialState: function() {
-        return {
-            counter: 0
-        };
-    },
-
-    increment: function() {
-        this.setState({
-            counter: this.state.counter + 1
-        });
-    },
-
-    decrement: function() {
-        this.setState({
-            counter: this.state.counter - 1
-        });
-    },
-
-    render: function() {
-        console.log("render: tworzenie elementu");
-        return React.createElement('div', {},
-            React.createElement('span', {}, 'Licznik 3: ' + this.state.counter),
-            React.createElement('button', {onClick: this.increment}, "Plus 1"),
-            React.createElement('button', {onClick: this.decrement}, "Minus 1")
-        );
-    }
-});
-
 var element = React.createElement("div", {}, 
-                React.createElement(Counter1),
-                React.createElement(Counter2),
-                React.createElement(Counter3)
+                React.createElement(Counter),
+                React.createElement(Counter),
+                React.createElement(Counter)
               );
 
 ReactDOM.render(element, document.getElementById('app'));
