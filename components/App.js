@@ -10,17 +10,26 @@ App = React.createClass({
         };
     },
 
-    handleSearch: function(searchingText) {  // 1.
+    handleSearch: function(searchingText) { // 1.
         this.setState({
-          loading: true  // 2.
+            loading: true  // 2.
         });
-        this.getGif(searchingText, function(gif) {  // 3.
-          this.setState({  // 4
-            loading: false,  // a
-            gif: gif,  // b
-            searchingText: searchingText  // c
-          });
-        }.bind(this));
+
+        this.getGif(searchingText)  
+            .then(response => {
+                const data = JSON.parse(xhr.responseText).data; // 4.
+                const gif = {  // 5.
+                    url: data.fixed_width_downsampled_url,
+                    sourceUrl: data.url
+                };
+                this.setState({  // 4
+                    loading: false,  // a
+                    gif: gif,  // b
+                    searchingText: searchingText  // c
+                });
+            })
+            .catch(error => console.log('error'));
+        
     },
 
     getGif: function(searchingText, callback) {  
@@ -53,7 +62,7 @@ App = React.createClass({
         };
 
         return (
-          <div style={styles} className='appcontent'>
+            <div style={styles} className='appcontent'>
                 <h1>Wyszukiwarka GIFow!</h1>
                 <p>Znajdź gifa na <a href='http://giphy.com'>giphy</a>. Naciskaj enter, aby pobrać kolejne gify.</p>
                 <Search onSearch={this.handleSearch}/>
