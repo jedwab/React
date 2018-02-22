@@ -16,12 +16,7 @@ App = React.createClass({
         });
 
         this.getGif(searchingText)  
-            .then(response => {
-                const data = JSON.parse(xhr.responseText).data; // 4.
-                const gif = {  // 5.
-                    url: data.fixed_width_downsampled_url,
-                    sourceUrl: data.url
-                };
+            .then(gif => {                
                 this.setState({  // 4
                     loading: false,  // a
                     gif: gif,  // b
@@ -34,22 +29,28 @@ App = React.createClass({
 
     getGif: function(searchingText, callback) {  
         return new Promise (function (resolve, reject) {
-        const url = GIPHY_API_URL + '/v1/gifs/random?api_key=' + GIPHY_PUB_KEY + '&tag=' + searchingText;  // 2.
-        const xhr = new XMLHttpRequest();  
+            const url = GIPHY_API_URL + '/v1/gifs/random?api_key=' + GIPHY_PUB_KEY + '&tag=' + searchingText;  // 2.
+            const xhr = new XMLHttpRequest();  
 
-        xhr.onload = function () {
-            if (this.status === 200) {
-                resolve(this.response);
-            } else {
-                reject (new Error(this.statusText));
-            }
+            xhr.onload = function() {
+                if (xhr.status === 200) {
+                    const data = JSON.parse(xhr.responseText).data; // 4.
+                    const gif = {  // 5.
+                        url: data.fixed_width_downsampled_url,
+                        sourceUrl: data.url
+                    };
+                    
+                    resolve(gif);
+                } else {
+                    reject (new Error(xhr.statusText));
+                }            
+            };
             xhr.onerror = function () {
                 reject(new Error( 
-                    `XMLHttpRequest Error: ${this.statusText}`));
+                    `XMLHttpRequest Error: ${xhr.statusText}`));
             };
-        };
-        xhr.open( 'GET', url);
-        xhr.send();
+            xhr.open( 'GET', url);
+            xhr.send();
         });
     },
     
