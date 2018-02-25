@@ -17,7 +17,7 @@ App = React.createClass({
 
         this.getGif(searchingText)  
             .then(response => {
-                const data = JSON.parse(xhr.responseText).data; // 4.
+                const data = JSON.parse(response).data; // 4.
                 const gif = {  // 5.
                     url: data.fixed_width_downsampled_url,
                     sourceUrl: data.url
