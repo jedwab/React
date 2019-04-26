@@ -1,0 +1,21 @@
+* {
+  font-family: 'Lato';
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url("https://images.pexels.com/photos/751373/pexels-photo-751373.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb");
+  background-size: cover;
+}
+
+h1, p, input, .appgif {
+  margin: 30px 
+}
+p {
+  font-size: 24px;
+}
+input {
+  width: 200px;
+}
+

@@ -1,0 +1,28 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "dependencies": {
+    "babel-standalone": "^6.26.0",
+    "browser-sync": "^2.23.6"
+  },
+  "devDependencies": {
+    "babel-polyfill": "^6.26.0",
+    "http-server": "^0.11.1",
+    "start": "http-server"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jedwab/React.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jedwab/React/issues"
+  },
+  "homepage": "https://github.com/jedwab/React#readme"
+}
